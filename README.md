@@ -1,6 +1,6 @@
 # Learning Vue
 
-## CHAPTER 1
+## Chapter 1
 INTRO - GETTING STARTED
 
 **Properties**
@@ -47,7 +47,7 @@ State management -> deployment
 Adding vue.js file in project folder, link it on top!
 
 
-## CHAPTER 2
+## Chapter 2
 DOM INTERACTION
 
 **Understanding VueJS templates**
