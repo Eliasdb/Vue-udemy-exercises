@@ -20,10 +20,8 @@ CDN: copy link and import it
 
 **First application(hello world)**
 
-new Vue(argument) = instance of object (data-object)
-el: “#app” =>  div in HTML where we output the inserted 			    
-		data(JS) = ‘location’ of Vue object
-
+• New Vue(argument) is the instance of an object(data-object). 
+• El: #app refers to the div where we output the JS data, it's the location of a Vue object.
 
 **Extending the application**
 
@@ -71,7 +69,7 @@ This.title refers to ‘title’ in the object ‘data’, we can use it in the 
 
 If you try to add a hyper link through the instance, it gives you a 404. It tries to parse the curly braces as a link. This is normal; we can’t use curly braces in any HTML element attribute. Only where you would normally use text.
 
-How do you bind it dynamically?
+*How do you bind it dynamically?*
 v-bind directive: so it knows not to use the normal attribute, instead bind it. 
 By setting it up like this, we can now pass a link without curly braces, because we are in the VueJS template language.
 
