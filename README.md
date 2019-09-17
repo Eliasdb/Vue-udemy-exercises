@@ -141,8 +141,8 @@ This does two things:
 **Reacting to changes with computed properties**
 
 To reiterate: A vue instance consists of
-	1. el: connect to DOM
-	2. data: store data to be used
-	3. methods: the methods of this due instance
-	4. computed: dependent properties
+1. el: connect to DOM	
+2. data: store data to be used
+3. methods: the methods of this due instance
+4. computed: dependent properties
 
