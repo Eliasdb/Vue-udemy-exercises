@@ -35,7 +35,7 @@ CDN: copy link and import it
 
 **Course structure(4 projects + quick exercises)**
 
-intro -> DOM(templates) -> understanding VueJS instance -> Vue CLI -> components -> forms -> directives, filters and mixins -> animations and transitions -> working with HTTP -> routing -> state management -> deployment
+Intro -> DOM(templates) -> understanding VueJS instance -> Vue CLI -> components -> forms -> directives, filters and mixins -> animations and transitions -> working with HTTP -> routing -> state management -> deployment
 	
 
 **Setting up locally**
@@ -49,12 +49,12 @@ Adding vue.js file in project folder, link it on top!
 
 **Understanding VueJS templates**
 
-Vue creates templates based on HTML, stores it internally and uses it to create the real HTML code, which is then rendered as the DOM.  Vue basically is the layer in the middle. 
+Vue creates templates based on HTML, stores it internally and uses it to create the real HTML code, which is then rendered as the DOM.  Vue basically is the layer in the middle.
 
 
 **Vue Template Syntax and instance**
 
-You can execute functions in between the curly braces, too. It returns something that can be output in the DOM, it has to be something which can be converted to a string though. -> Take a look at ‘sayHello’. Here we see we can also access anything in the methods property.
+You can execute functions in between the curly braces, too. It returns something that can be output in the DOM, it has to be something which can be converted to a string though. Take a look at ‘sayHello’. Here we see we can also access anything in the methods property.
 
 
 **Accessing data in the Vue instance**
@@ -94,7 +94,7 @@ V-on listens to something, an event. For example ‘click’, ‘mouse enter, �
 
 **Getting event data from the event object**
 
-The default event created by JavaScript or by the DOM which holds information, for example the coordinates of where this click event happened. This shows us that we can listen to events other than click and it shows how we can pass this event object which is created automatically and use it as we do in the exercise(2.2).
+The default event created by JavaScript or by the DOM which holds information, for example the coordinates of where this click event happened. This shows us that we can listen to events other than click and it shows how we can pass this event object which is created automatically and use it as we do in the exercise.
 
 
 **Passing own arguments with events**
@@ -104,29 +104,29 @@ We can add our own arguments and automatically created events at ‘increase’.
 
 **Modifying an event**
 
-We can use stopPropagation which means only handle the element here in this handler, don’t let it propagate up to any elements which might hold this element.
+We can use stopPropagation which means only handle the element here in this handler, don’t let it propagate up to any elements which might hold this element
+
 • event.stopPropagation = The dead spot works, it’s not being propagated from the previous function.
 
-Another thing you can use is a modifier, an event modifier, stopping the propagation of the event. Adding ‘.stop’ after the event, will do the same thing without having to add the dummy function. Another modifier for example is ‘.prevent’, it prevents default. Side note: you can chain them if need be by adding .prevent right after .stop. -> see: https://vuejs.org/v2/guide/events.html#Event-Modifiers
+Another thing you can use is a modifier, an event modifier, stopping the propagation of the event. Adding .stop after the event, will do the same thing without having to add the dummy function. Another modifier for example is .prevent, it prevents default. 
+
+*Side note*: You can chain them if need be by adding .prevent right after .stop. Check [further documentation](https://vuejs.org/v2/guide/events.html#Event-Modifiers).
 
 
 **Listening to keyboard events**
 
-We also have key modifiers. For example, v-on:keyup.enter: enter is the key modifier here. There are also other ones like .tap, .esc, .space. You can also chain these, like the other event modifiers. These modifiers enable us to listen to specific keys. 
--> see: http://vuejs.org/v2/guide/events.html#Key-Modifiers
+We also have key modifiers. For example, v-on:keyup.enter: enter is the key modifier here. There are also other ones like .tap, .esc, .space. You can also chain these, like the other event modifiers. These modifiers enable us to listen to specific keys. Check [this](http://vuejs.org/v2/guide/events.html#Key-Modifiers).
 
 
 **Writing Javascript code in the templates**
 
 You could add ‘counter++’ on a button and it will do it, the same for {{ counter * 2 > 10 ? 'Greater than 10' : 'Smaller than 10' }}.
-If it’s greater than 1	0, it will tell you, otherwise the latter. 
-It’s easier to just see the code. Just keep in mind that you can use JS and HTML combined in the template as long as you use template expressions like the double curly braces. 
-It creates a strong connection between your template(HTML) and your Vue instance(JS).
+If it’s greater than 1	0, it will tell you, otherwise the latter. It’s easier to just see the code. Just keep in mind that you can use JS and HTML combined in the template as long as you use template expressions like the double curly braces. It creates a strong connection between your template(HTML) and your Vue instance(JS).
 
 
 **Two-way-binding**
 
-We saw how we could output data. For example string interpolation, like ‘Max’ is output through ‘name’. We saw event listeners, where they listen to key up for example. Here’s a way of doing both: two-way-databinding that would be.
+We saw how we could output data. For example string interpolation, like Max is output through ‘name’. We saw eventlisteners, where they listen to key up for example. Here’s a way of doing both: two-way-databinding.
 
 v-model directive: Setting up two way data binding for the input. Between the quotation marks, the property which we want to bind in both directions. In this case ‘name’.
 This does two things: 
