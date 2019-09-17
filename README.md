@@ -4,6 +4,7 @@
 INTRO - GETTING STARTED
 
 **Properties**
+
 	Runs in the browser
 	Very reactive
 	Extremely lean file size(16kb)
