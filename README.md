@@ -1,8 +1,6 @@
 # Learning Vue
 
-## Chapter 1
-
-*Intro - getting started*
+## Chapter 1: Getting Started
 
 **Properties**
 
@@ -43,9 +41,8 @@ Intro -> DOM(templates) -> understanding VueJS instance -> Vue CLI -> components
 Adding vue.js file in project folder, link it on top!
 
 
-## Chapter 2
+## Chapter 2: DOM interaction
 
-*Dom interaction*
 
 **Understanding VueJS templates**
 
