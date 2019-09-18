@@ -179,3 +179,46 @@ Directly interacting with styles attached to an element so you don’t have to u
 **Styling elements with the array syntax**
 
 You can also use arrays, like [myStyle, {height: width + ‘px’}] to style as you can see in 2.7.
+
+## Chapter 3 - Using conditionals and rendering lists
+
+
+**Module introduction**
+
+
+
+**Conditional rendering with v-if**
+
+
+
+**Using an alternative v-if syntax**
+
+
+
+**Don’t detach it with v-show**
+
+
+
+**Rendering lists with v-for**
+
+
+
+**Getting the current index**
+
+
+
+**Using an alternative v-for syntax**
+
+
+
+**Looping through objects**
+
+
+
+**Looping through a list of numbers**
+
+
+
+**Keeping track of elements when using v-for**
+
+
