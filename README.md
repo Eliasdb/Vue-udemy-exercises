@@ -143,3 +143,42 @@ To reiterate: A vue instance consists of
 3. methods: the methods of this due instance
 4. computed: dependent properties
 
+The computed property or object here also allows us to store properties for example output, do not reuse result(2.4). But here it is not directly the data, it is also a function.
+It looks the same, but we use it differently. We use it like a property, not like a function. Everything stored in computed can be used just like you use a property in the data object. It doesn’t even execute on clicking ‘increase second’. 
+
+
+An alternative to computed properties: watching for changes
+
+The fifth new object we are learning about is watch: it executes code upon data changes. You set the property you want to watch, for example counter. Then as a function you specify what you want to execute whenever the counter changes. It passes the value of the upcoming change to the function. This is great if you need asynchronous tasks to run. Computed properties always need to run synchronously, which means that needs to happen as soon as possible or immediately. You can’t do an asynchronous task in between. You can add a timeout function. It reacts on changes of whatever property you set as a key, in this case the counter.
+
+
+Saving time with shorthands
+
+@click = v-on
+: = v-bind
+Basically just shorter ways of writing code.
+
+
+Dynamic styling with CSS classes - basics
+
+Attaching CSS classes in the application is pretty easy. You can integrate them in your HTML with :class, then referring to the CSS classes used. This is VueJS syntax, which binds to it, but treats it all as one class. Video 2.23(exercise 2.6) is a great easy to understand example.
+
+
+Dynamic styling with CSS classes - using objects
+
+Here we can make computed properties, which does the same thing: it’s just outsourced to the Vue instance in computed, making our code leaner. 
+
+
+Dynamic styling with CSS classes - using names(!)
+
+It’s probably easier to just look at 2.24 and exercise 2.6, because it is too long to type it all out. Key-pair with name and condition.
+
+
+Setting styles dynamically without CSS classes(!)
+
+Directly interacting with styles attached to an element so you don’t have to use classes necessarily. Let’s say you only want to change the style, the colour. This can be done with :style=“{‘background-color’}”, with the quotation marks being there because dash is not a valid character or by removing the quotations marks and using the following camel case syntax: :style=“{backgroundColor: color}”.  Again, take a look at the exercises again, they are much easier to follow.
+
+
+Styling elements with the array syntax
+
+You can also use arrays, like [myStyle, {height: width + ‘px’}] to style as you can see in 2.7.
