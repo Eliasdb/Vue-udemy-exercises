@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-if="show">You can see me!</p>
+    <p>Do you also see me?</p>
+    <button @click="show = !show">Switch</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            show: true
+        }
+    });
+</script>
+
+</body>
+</html>
+
+
