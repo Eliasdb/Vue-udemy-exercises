@@ -194,16 +194,16 @@ In this exercise, we are showing and hiding or attaching and detaching elements 
 - @click=“show = !show”: doing the exact opposite of show
 -> let’s text disappear
 
-It’s not hidden, it’s not transparent. It’s gone(put this in bold). It’s important to understand, v-if really attaches or detaches elements to the DOM. It completely removes them if the condition is false here. This is also true for nested elements in the complete element, for example a '<span>' in a '<p>'. 
+It’s not hidden, it’s not transparent. It’s gone(put this in bold). It’s important to understand, v-if really attaches or detaches elements to the DOM. It completely removes them if the condition is false here. This is also true for nested elements in the complete element, for example a span in a paragraph. 
 
 * v-else: Whenever the v-if condition is false, this happens, which makes sense like a normal if-else statement.
 
-*Side note: If you’re using Vue 2.1 or higher, you now have access to a v-else-if directive, have a look at this link to learn more: https://vuejs.org/v2/guide/conditional.html#v-else-if.
+*Side note: If you’re using Vue 2.1 or higher, you now have access to a v-else-if directive, have a look at this link to learn more: https://vuejs.org/v2/guide/conditional.html#v-else-if.*
 
 
 **Using an alternative v-if syntax**
 
-We can also use the <template> tag, to wrap multiple elements in a v-if condition. It groups all the elements together and it’s not visible in the console. An alternative would be a <div>, but you don’t want the side effect <div> introduces, so <template v-if> would be a valid option to group multiple elements.
+We can also use the template tag, to wrap multiple elements in a v-if condition. It groups all the elements together and it’s not visible in the console. An alternative would be a div, but you don’t want the side effect div introduces, so template v-if would be a valid option to group multiple elements.
 
 **Don’t detach it with v-show**
 
@@ -218,6 +218,6 @@ The v-for directive allow us, like a normal for-loop, to loop through an array a
 
 It’s looping through the array of ingredients through a sort of variable ‘ingredient’ (you can choose the name). You can then use this variable, which Vue.js creates during the loop with {{ interpolation }} here for example to output it.
 
-*Side note: You can use it like you use any other property, so I could also bind to the reference of a link. I can pass it to a function call when listening to an event. Vue.js just creates it dynamically for you instead.
+*Side note: You can use it like you use any other property, so I could also bind to the reference of a link. I can pass it to a function call when listening to an event. Vue.js just creates it dynamically for you instead.*
 
 
