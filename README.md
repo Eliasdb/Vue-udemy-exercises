@@ -41,6 +41,7 @@ Intro -> DOM(templates) -> understanding VueJS instance -> Vue CLI -> components
 Adding vue.js file in project folder, link it on top!
 
 
+
 ## Chapter 2: DOM interaction
 
 
@@ -107,7 +108,7 @@ We can use stopPropagation which means only handle the element here in this hand
 
 Another thing you can use is a modifier, an event modifier, stopping the propagation of the event. Adding .stop after the event, will do the same thing without having to add the dummy function. Another modifier for example is .prevent, it prevents default. 
 
-*Side note*: You can chain them if need be by adding .prevent right after .stop. Check [further documentation](https://vuejs.org/v2/guide/events.html#Event-Modifiers).
+*Side note: You can chain them if need be by adding .prevent right after .stop. Check [further documentation](https://vuejs.org/v2/guide/events.html#Event-Modifiers).*
 
 
 **Listening to keyboard events**
@@ -180,45 +181,43 @@ Directly interacting with styles attached to an element so you don’t have to u
 
 You can also use arrays, like [myStyle, {height: width + ‘px’}] to style as you can see in 2.7.
 
+
+
 ## Chapter 3 - Using conditionals and rendering lists
-
-
-**Module introduction**
-
-
 
 **Conditional rendering with v-if**
 
+In this exercise, we are showing and hiding or attaching and detaching elements to the DOM.  You see it everywhere in applications, for example sometimes you only want to show an error message. Let’s say in case of a wrong input. VueJS has methods to allow us to just do that.
+
+- v-if: it allows us to bind it to a condition or to a property whatever which resolves to true or false
+- v-if=“show”: what’s it binding to
+- @click=“show = !show”: doing the exact opposite of show
+-> let’s text disappear
+
+It’s not hidden, it’s not transparent. It’s gone(put this in bold). It’s important to understand, v-if really attaches or detaches elements to the DOM. It completely removes them if the condition is false here. This is also true for nested elements in the complete element, for example a span in a paragraph. 
+
+* v-else: Whenever the v-if condition is false, this happens, which makes sense like a normal if-else statement.
+
+*Side note: If you’re using Vue 2.1 or higher, you now have access to a v-else-if directive, have a look at this link to learn more: [click here](https://vuejs.org/v2/guide/conditional.html#v-else-if).*
 
 
 **Using an alternative v-if syntax**
 
-
+We can also use the template tag, to wrap multiple elements in a v-if condition. It groups all the elements together and it’s not visible in the console. An alternative would be a div, but you don’t want the side effect div introduces, so template v-if would be a valid option to group multiple elements.
 
 **Don’t detach it with v-show**
 
+V-if as mentioned before completely attaches or detaches an element to the DOM. It doesn’t hide it. If you want to hide it, you can use v-show instead. It toggles between visible and invisible. Also in the console it’s not removed completely, it just adds ‘display: none’ to it as styling.  That’s the key difference, it’s still there; it’s just not displayed anymore through CSS. It’s still in the DOM. V-show only hides and doesn’t remove it entirely. The default though will be v-if, as it is also better performance-wise to have less elements in the DOM. It makes sense removing not required elements. But if you have a special case where you absolutely need it, use v-show.
 
 
 **Rendering lists with v-for**
 
+The v-for directive allow us, like a normal for-loop, to loop through an array and replicate the element on which v-for sits as often as needed and additionally also pull out the content in the array for the current iteration and use it in the template. You use it to loop through an array or any property which happens to be a list or iterable. In exercise 3.2, you can see the following code:
 
+	<li v-for=“ingredient in ingredients”> {{ ingredient }}</li>
 
-**Getting the current index**
+It’s looping through the array of ingredients through a sort of variable ‘ingredient’ (you can choose the name). You can then use this variable, which Vue.js creates during the loop with {{ interpolation }} here for example to output it.
 
-
-
-**Using an alternative v-for syntax**
-
-
-
-**Looping through objects**
-
-
-
-**Looping through a list of numbers**
-
-
-
-**Keeping track of elements when using v-for**
+*Side note: You can use it like you use any other property, so I could also bind to the reference of a link. I can pass it to a function call when listening to an event. Vue.js just creates it dynamically for you instead.*
 
 
