@@ -12,9 +12,21 @@
 
 <div id="app">
     <ul>
-         <li v-for="ingredient in ingredients">{{ ingredient }}</li>
+         <li v-for="(ingredient, i) in ingredients">{{ ingredient }} ({{ i }})</li>
         <!-- ingredient is a name you can choose, ingredients refer to the array in the data property -->
     </ul>
+    <hr>
+    <ul>
+        <li v-for="person in persons">
+            <div v-for="(value, key, index) in person">{{ key }}: {{ value }} ({{ index }})</div>
+            <!-- value/key: name you can choose, but it will automatically take the value and the key of the properties of the object (order matters), only value is possible, too ---- person: refers to person on previous line -->
+        </li>
+    </ul>
+    <hr>
+    <template v-for="(ingredient, index) in ingredients">
+        <h1>{{ ingredient }}</h1>
+        <p>{{ index }}</p>
+    </template>
 </div>
 
 <script>
