@@ -185,7 +185,7 @@ You can also use arrays, like [myStyle, {height: width + ‘px’}] to style as 
 
 ## Chapter 3 - Using conditionals and rendering lists
 
-**Conditional rendering with v-if
+**Conditional rendering with v-if**
 
 In this exercise, we are showing and hiding or attaching and detaching elements to the DOM.  You see it everywhere in applications, for example sometimes you only want to show an error message. Let’s say in case of a wrong input. VueJS has methods to allow us to just do that.
 
@@ -194,9 +194,9 @@ In this exercise, we are showing and hiding or attaching and detaching elements 
 - @click=“show = !show”: doing the exact opposite of show
 -> let’s text disappear
 
-It’s not hidden, it’s not transparent. It’s gone(put this in bold). It’s important to understand, v-if really attaches or detaches elements to the DOM. It completely removes them if the condition is false here. This is also true for nested elements in the complete element, for example a <span> in a <p>. 
+It’s not hidden, it’s not transparent. It’s gone(put this in bold). It’s important to understand, v-if really attaches or detaches elements to the DOM. It completely removes them if the condition is false here. This is also true for nested elements in the complete element, for example a '<span>' in a '<p>'. 
 
-- v-else: Whenever the v-if condition is false, this happens, which makes sense like a normal if-else statement.
+* v-else: Whenever the v-if condition is false, this happens, which makes sense like a normal if-else statement.
 
 *Side note: If you’re using Vue 2.1 or higher, you now have access to a v-else-if directive, have a look at this link to learn more: https://vuejs.org/v2/guide/conditional.html#v-else-if.
 
