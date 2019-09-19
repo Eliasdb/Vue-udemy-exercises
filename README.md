@@ -198,7 +198,7 @@ It’s not hidden, it’s not transparent. It’s gone(put this in bold). It’s
 
 * v-else: Whenever the v-if condition is false, this happens, which makes sense like a normal if-else statement.
 
-*Side note: If you’re using Vue 2.1 or higher, you now have access to a v-else-if directive, have a look at this link to learn more: https://vuejs.org/v2/guide/conditional.html#v-else-if.*
+*Side note: If you’re using Vue 2.1 or higher, you now have access to a v-else-if directive, have a look at this link to learn more: click here[https://vuejs.org/v2/guide/conditional.html#v-else-if.]*
 
 
 **Using an alternative v-if syntax**
