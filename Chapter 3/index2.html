@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+         <li v-for="ingredient in ingredients">{{ ingredient }}</li>
+        <!-- ingredient is a name you can choose, ingredients refer to the array in the data property -->
+    </ul>
+</div>
+
+<script>
+        new Vue({
+            el: "#app",
+            data: {
+                ingredients: ["meat", "fruit", "cookies"], // array
+                persons: [ // array
+                    {name: 'Max', age: 27, color: 'red'}, // object
+                    {name: 'Anna', age: 'unknown', color: 'blue'} // object
+                ]
+            }
+        });
+</script>
+
+</body>
+</html>
