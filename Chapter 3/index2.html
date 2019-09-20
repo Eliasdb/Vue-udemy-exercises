@@ -12,9 +12,10 @@
 
 <div id="app">
     <ul>
-         <li v-for="(ingredient, i) in ingredients">{{ ingredient }} ({{ i }})</li>
+        <li v-for="(ingredient, i) in ingredients" :key="ingredient">{{ ingredient }} ({{ i }})</li>
         <!-- ingredient is a name you can choose, ingredients refer to the array in the data property -->
     </ul>
+    <button @click="ingredients.push('spices')">Add new</button>
     <hr>
     <ul>
         <li v-for="person in persons">
@@ -22,6 +23,7 @@
             <!-- value/key: name you can choose, but it will automatically take the value and the key of the properties of the object (order matters), only value is possible, too ---- person: refers to person on previous line -->
         </li>
     </ul>
+    <span v-for="n in 10">{{ n }}</span> <!-- this loops through numbers 1-10 -->
     <hr>
     <template v-for="(ingredient, index) in ingredients">
         <h1>{{ ingredient }}</h1>
@@ -30,16 +32,16 @@
 </div>
 
 <script>
-        new Vue({
-            el: "#app",
-            data: {
-                ingredients: ["meat", "fruit", "cookies"], // array
-                persons: [ // array
-                    {name: 'Max', age: 27, color: 'red'}, // object
-                    {name: 'Anna', age: 'unknown', color: 'blue'} // object
-                ]
-            }
-        });
+    new Vue({
+        el: "#app",
+        data: {
+            ingredients: ["meat", "fruit", "cookies"], // array
+            persons: [ // array
+                {name: 'Max', age: 27, color: 'red'}, // object
+                {name: 'Anna', age: 'unknown', color: 'blue'} // object
+            ]
+        }
+    });
 </script>
 
 </body>
