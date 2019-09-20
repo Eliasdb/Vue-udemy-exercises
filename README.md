@@ -221,3 +221,23 @@ It’s looping through the array of ingredients through a sort of variable ‘in
 *Side note: You can use it like you use any other property, so I could also bind to the reference of a link. I can pass it to a function call when listening to an event. Vue.js just creates it dynamically for you instead.*
 
 
+**Looping through objects or a list of numbers**
+
+I suggest looking at the code, which is clear as it is. I’ve added some comments as well to further clarify the looping. 
+
+
+**Keeping track of elements when using v-for**
+
+There is one more important thing you got to know about the for loop in Vue.js. The for loop, as we use it here, works fine. It’s important to understand what happens behind the scenes though. If Vue.js needs to update one of these values because somewhere in your code, you change one of the elements here. Take a look at the following code:
+
+	<button @click="ingredients.push('spices')">Add new</button>
+
+
+This pushes whatever you choose to your array. It works fine. Two things to be noted here:
+
+1. Vue.js proxies this push method because generally, the push method does not create a new array, it simply adds items to the existing one and that’s hard to track since the object itself(persons) doesn’t change here because it’s a reference type and the pointer to the type hasn’t changed, only the value in memory.
+2. How does Vue update this list if some item needs to be changed or something like that? It updates the list by simply updating the position in the array where something changed. It does not keep track of the specific element it created, it will only patch it in the second position. Oftentimes, this is the behaviour you want, but if you want to be safe and you want to make sure that Vue.js is not only aware of the position, but of the actual list item on which the value you’re working with sits, you need to assign a unique key to that list item. You can do this, as seen in 3.2, by using the shorthand :key=“ingredients”. This is unique value. You know that each ingredient will only be on this list once, you might very well use that as a key here. If we now re-render, this works the same, but behind the scenes, you are now safe and Vue.js not only stores the position of the element but the element itself which means should it ever need to reorder then, or do something like that, it will take the actual element and reorder it and not just override the values in some of the positions it finds in the array. If you run into bugs with your for loop, check if you assigned a key. 
+
+
+
+## Chapter 4 - First course project: The Monster Slayer
