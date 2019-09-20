@@ -9,28 +9,45 @@
 <body>
 <div id="app">
     <section class="row">
+
+        <!-- player -->
         <div class="small-6 columns">
             <h1 class="text-center">YOU</h1>
             <div class="healthbar">
-                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;">
-
+                <div
+                        class="healthbar text-center"
+                        style="background-color: green; margin: 0; color: white;"
+                        :style="{width: playerHealth + '%'}">
+                    {{ playerHealth }}
                 </div>
             </div>
         </div>
+
+
+        <!-- monster -->
         <div class="small-6 columns">
             <h1 class="text-center">MONSTER</h1>
             <div class="healthbar">
-                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;">
-
+                <div
+                        class="healthbar text-center"
+                        style="background-color: green; margin: 0; color: white;"
+                        :style="{width: playerHealth + '%'}">
+                    {{ monsterHealth }}
                 </div>
             </div>
         </div>
+
+
+       <!-- start game button -->
     </section>
     <section class="row controls">
         <div class="small-12 columns">
             <button id="start-game">START NEW GAME</button>
         </div>
     </section>
+
+
+     <!-- action buttons -->
     <section class="row controls">
         <div class="small-12 columns">
             <button id="attack">ATTACK</button>
@@ -39,6 +56,9 @@
             <button id="give-up">GIVE UP</button>
         </div>
     </section>
+
+
+
     <section class="row log">
         <div class="small-12 columns">
             <ul>
@@ -49,6 +69,6 @@
         </div>
     </section>
 </div>
-<script scr="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
