@@ -5,12 +5,14 @@ new Vue({
         monsterHealth: 100,
         gameIsRunning: false // to decide whether to show the start new game button or the attack/heal buttons
     },
+
     methods: {
         startGame: function() { // on click, sets up actions buttons and health bars
             this.gameIsRunning = true;
             this.playerHealth = 100;
             this.monsterHealth = 100;
         },
+
 
         attack: function() {
             this.monsterHealth -= this.calculateDamage(3, 10); // random number 3-10 to monster health
@@ -19,22 +21,45 @@ new Vue({
                 return; //stops executing code
             }
 
-            this.playerHealth -= this.calculateDamage(5, 12);
-            this.checkWin(); //end of functions, doesn't need return
+            this.monsterAttacks();
         },
+
 
         specialAttack: function() {
-
+            this.monsterHealth -= this.calculateDamage(10, 20); // better damage to monster
+            if (this.checkWin()) {
+                return;
+            }
+            this.monsterAttacks(); //monster attacks, too
         },
-        heal: function() {
 
+
+        heal: function() { // if player is below 90, you can start healing(+10)
+            if (this.playerHealth <= 90) {
+                this.playerHealth += 10;
+            } else {
+                this.playerHealth = 100;
+            }
+            this.monsterAttacks();
         },
+
+
         giveUp: function() {
-
+            this.gameIsRunning = false;
         },
+
+
+        monsterAttacks: function() {
+            this.playerHealth -= this.calculateDamage(5, 12);
+            this.checkWin();
+        },
+
+
         calculateDamage: function(min, max) {
             return Math.max(Math.floor(Math.random() * max) + 1, min); // see own documentation for explanation
         },
+
+
         checkWin: function() {
             if (this.monsterHealth <= 0) { // alerts 'you won'
                 if (confirm('You won! New game?')) { //asks to play again
