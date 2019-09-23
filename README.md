@@ -260,4 +260,4 @@ Steps:
 2. var damage = Math.random() * max // A random number between 0 and 10, 10 excluded. So 0 - 9.999…
 3. var damage = Math.floor(Math.random() * max) // A random number between 0 and 9.
 4. var damage = Math.floor(Math.random() * max) + 1 // A random number between 0 and 10. 
-5. var dame = Math.max(Math.floor(Math.random() * max) + 1, min) // If the random number is 1 or 2, then we’ll take the minimum 3, otherwise we will take the random number. Thus the damage gets a random number from 3-10.
+5. var damage = Math.max(Math.floor(Math.random() * max) + 1, min) // If the random number is 1 or 2, then we’ll take the minimum 3, otherwise we will take the random number. Thus the damage gets a random number from 3-10.
