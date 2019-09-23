@@ -51,24 +51,28 @@
     <section class="row controls" v-else> <!-- look at the v-if before it, shows  these buttons if running, has to be both the same type -->
         <div class="small-12 columns">
             <button id="attack" @click="attack">ATTACK</button>
-            <button id="special-attack" @click="specialAttack">SPECIAL ATTACK</button>
+            <button id="special-attack"@click="specialAttack">SPECIAL ATTACK</button>
             <button id="heal" @click="heal">HEAL</button>
             <button id="give-up" @click="giveUp">GIVE UP</button>
         </div>
     </section>
 
+<!-- attack logs -->
 
-
-    <section class="row log">
+    <section class="row log" v-if="turns.length > 0"> <!-- only shows at first logged turn -->
         <div class="small-12 columns">
             <ul>
-                <li>
-
+                <li v-for="turn in turns"
+                    :class="{'player-turn': turn.isPlayer, 'monster-turn': !turn.isPlayer}"> <!-- loops through array turns + styling -->
+                    {{ turn.text }}
                 </li>
             </ul>
         </div>
     </section>
+
+
 </div>
+
 <script src="app.js"></script>
 </body>
 </html>

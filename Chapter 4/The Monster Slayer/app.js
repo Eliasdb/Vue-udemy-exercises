@@ -3,7 +3,8 @@ new Vue({
     data: {
         playerHealth: 100,
         monsterHealth: 100,
-        gameIsRunning: false // to decide whether to show the start new game button or the attack/heal buttons
+        gameIsRunning: false, // to decide whether to show the start new game button or the attack/heal buttons
+        turns: []
     },
 
     methods: {
@@ -11,12 +12,17 @@ new Vue({
             this.gameIsRunning = true;
             this.playerHealth = 100;
             this.monsterHealth = 100;
+            this.turns = [];
         },
 
 
         attack: function() {
-            this.monsterHealth -= this.calculateDamage(3, 10); // random number 3-10 to monster health
-
+            var damage = this.calculateDamage(3, 10); //
+            this.monsterHealth -= damage; // random number 3-10 to monster health
+            this.turns.unshift({
+                isPlayer: true,
+                text: 'Player hits monster for ' + damage
+            }); // unshift adds a turn as the first item in an array
             if (this.checkWin()) { //checking if we should continue function or not, will check if this.checkWin returns true which is always the case if we either lost or won. if we return true here, I know I don't want to continue the code execution here because the game is over, I don't want to deal damage again. We start a new game or did nothing.
                 return; //stops executing code
             }
@@ -26,7 +32,12 @@ new Vue({
 
 
         specialAttack: function() {
+            var damage = this.calculateDamage(10, 20)
             this.monsterHealth -= this.calculateDamage(10, 20); // better damage to monster
+            this.turns.unshift({
+                isPlayer: true,
+                text: 'Player hits monster hard for ' + damage
+            });
             if (this.checkWin()) {
                 return;
             }
@@ -40,6 +51,10 @@ new Vue({
             } else {
                 this.playerHealth = 100;
             }
+            this.turns.unshift({
+                isPlayer: true,
+                text: 'Player heals for 10'
+            });
             this.monsterAttacks();
         },
 
@@ -50,10 +65,14 @@ new Vue({
 
 
         monsterAttacks: function() {
-            this.playerHealth -= this.calculateDamage(5, 12);
+            var damage = this.calculateDamage(5, 12);
+            this.playerHealth -= damage;
             this.checkWin();
+            this.turns.unshift({
+                isPlayer: false,
+                text: 'Monster hits player for ' + damage
+        });
         },
-
 
         calculateDamage: function(min, max) {
             return Math.max(Math.floor(Math.random() * max) + 1, min); // see own documentation for explanation
