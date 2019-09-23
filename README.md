@@ -244,11 +244,11 @@ This pushes whatever you choose to your array. It works fine. Two things to be n
 
 I’ve added comments to the code to quickly see what does what while reviewing. The following space is used to go in depth about some harder structured code. 
 
-Important note: The finished code looks different than the code below, because these are just beginner examples of basic concepts, which I might reuse later. The final version of the code has been refactored and outsourced in different functions. This just serves getting the logic behind the code.
+Important note: The finished code looks different than the code below, because these are just examples of basic concepts, which I might reuse later. The final version of the code has been refactored and outsourced in different functions. This just serves getting the logic behind the code.
 
 For example:
 
-On the attack method, we want to randomise damage between 3 and 10, which looks like this:
+1. On the attack method, we want to randomise damage between 3 and 10, which looks like this:
 
 - var max = 10
 - var min = 3
