@@ -241,3 +241,23 @@ This pushes whatever you choose to your array. It works fine. Two things to be n
 
 
 ## Chapter 4 - First course project: The Monster Slayer
+
+I’ve added comments to the code to quickly see what does what while reviewing. The following space is used to go in depth about some harder structured code. 
+
+Important note: The finished code looks different than the code below, because these are just examples of basic concepts, which I might reuse later. The final version of the code has been refactored and outsourced in different functions. This just serves getting the logic behind the code.
+
+For example:
+
+1. On the attack method, we want to randomise damage between 3 and 10, which looks like this:
+
+- var max = 10
+- var min = 3
+- var damage = Math.max(Math.floor(Math.random() * max) + 1, min)
+
+Steps:
+
+1. var damage = Math.random() // A random number between 0 and 1; 1 excluded.
+2. var damage = Math.random() * max // A random number between 0 and 10, 10 excluded. So 0 - 9.999…
+3. var damage = Math.floor(Math.random() * max) // A random number between 0 and 9.
+4. var damage = Math.floor(Math.random() * max) + 1 // A random number between 0 and 10. 
+5. var damage = Math.max(Math.floor(Math.random() * max) + 1, min) // If the random number is 1 or 2, then we’ll take the minimum 3, otherwise we will take the random number. Thus the damage gets a random number from 3-10.
