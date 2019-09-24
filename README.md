@@ -2,6 +2,7 @@
 
 ## Chapter 1: Getting Started
 
+
 **Properties**
 
 - Runs in the browser
@@ -20,6 +21,7 @@ CDN: copy link and import it
 
 - New Vue(argument) is the instance of an object(data-object). 
 - El: #app refers to the div where we output the JS data, it's the location of a Vue object.
+
 
 **Extending the application**
 
@@ -261,3 +263,37 @@ Steps:
 3. var damage = Math.floor(Math.random() * max) // A random number between 0 and 9.
 4. var damage = Math.floor(Math.random() * max) + 1 // A random number between 0 and 10. 
 5. var damage = Math.max(Math.floor(Math.random() * max) + 1, min) // If the random number is 1 or 2, then we’ll take the minimum 3, otherwise we will take the random number. Thus the damage gets a random number from 3-10.
+
+
+## Chapter 5 - Understanding the Vue.js instance
+
+**Some basics about the VueJS instance**
+
+The Vue instance kind of is the middleman between our DOM, the HTML code up there and our business logic. We pack all our logic in this instance, either in the data property if it’s simply some data you want to work with. Or methods which you might want to call. Also dependencies, where we depend on the value of another property, like in the computed property. These are the options in Vue we already learned about and what composes the Vue instance and composes the application. Now we dig deeper. For example if we want multiple instances, how do we do that? Can we access our Vue instance from outside? We do have all of our logic inside this object we passed to the constructor, but could we access the instance from outside? 
+Let’s look at it into more detail.
+
+
+
+**Using multiple Vue instances**
+
+Let’s focus on using multiple instances. You can just make another div and another Vue instance and link it in the ‘el’ like you’re used to. ‘this.whatever’ only refers to properties in that Vue instance. Exercise 5.1, for example, features two titles in two different instances. So this.title would obviously only refer to the data property in that instance. There is no connection between these instances, these are two separate kinds of Vue instances controlling different parts of your DOM. Bottom line is: You can have multiple Vue instances for different tasks, as long as there is no connection between them. You can call functions from one to another instance, but it makes more sense to keep it separately from a business logic perspective anyways.
+
+
+**Accessing the Vue instance from outside**
+
+We can store Vue instances in a variable, it’s often named vm for Vue model. You can, for example, use this variable in another Vue instance, if you wanted to do so. Note that Vue.js also proxies the properties we set up here in data and it does the same for our methods and computed properties, it proxies them so we can easily access them like vm1.title. Keep in mind, technically vm1 is our Vue instance and this instance may have whatever properties it has, it’s not created by us. It certainly by default hasn’t our title property. Our title property is set up on this data object we pass on this object, we pass to the Vue.js constructor. Vue.js does this proxying for us automatically which makes it easier for us to access it from outside.
+
+
+**How Vue.js manages your data and methods**
+
+Vue proxies a lot of your data. In theory, we are not creating the Vue instance. Yes, we are calling it, we’re creating it with the constructor (new Vue), but it’s just an object(the instance) shipped with the Vue.js framework. We don’t know which properties this has, we can find out from the API reference but it clearly does not have the properties we set up here in the object we passed to the constructor. Vm.title would refer to the title of vm, which is just the entire object, but in reality it refers to our data we put in it. It’s just an (argument) we give to that constructor.
+
+
+But, behind the scenes, when creating an instance, Vue.js will take our object we pass in there and then it will take our data properties and our methods and will kind of use them as native properties on the Vue instance itself. So it’ll kind of copy them. It does a bit more than that behind the scenes, it actually sets up a kind of a watcher for each of those properties which makes sure that it recognizes whenever one of these properties is changed so that it knows when to update the DOM or when to do anything basically. It not only takes them and allows us to work with them like normal JavaScript, it also has this watcher layer where it recognises that something changed and is able to work with that. This has an important implication: we’re able to access our properties like that from outside but we’re not able to create a new property like this:
+
+
+    vm.newProp = “New!”;
+
+
+This will work, this is normal JS, you can add a property like this, but what you can’t do is use it in the Vue.js instance. It’s not reactive, Vue is not watching it because it will only create this proxying, it will only create these watchers for everything we pass in this object upon creation with this constructor. So everything we pass in this object, we pass to the constructor. Every other property we add thereafter will be there, as you can clearly tell, if we print it to the console (look up img later), we see our proxied properties with getters and setters, this is the watcher effect we were talking about. The newProp doesn’t have this getter or setter and that is because we didn’t pass it up on creation of the instance, therefore Vue is not watching it. We can add properties, but they will not work as normal properties(data, methods). This is really important to understand and to keep in mind.
+
