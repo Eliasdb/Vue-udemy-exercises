@@ -297,3 +297,13 @@ But, behind the scenes, when creating an instance, Vue.js will take our object w
 
 This will work, this is normal JS, you can add a property like this, but what you can’t do is use it in the Vue.js instance. It’s not reactive, Vue is not watching it because it will only create this proxying, it will only create these watchers for everything we pass in this object upon creation with this constructor. So everything we pass in this object, we pass to the constructor. Every other property we add thereafter will be there, as you can clearly tell, if we print it to the console (look up img later), we see our proxied properties with getters and setters, this is the watcher effect we were talking about. The newProp doesn’t have this getter or setter and that is because we didn’t pass it up on creation of the instance, therefore Vue is not watching it. We can add properties, but they will not work as normal properties(data, methods). This is really important to understand and to keep in mind.
 
+**A closer look at $el and $data (console)**
+
+
+- $el = keeps track of HTML code of our instance (native HTML element)
+- $data = object which holds our data properties
+-> for example: console.log(vm1.$data.title): $data is the data block we passed here accessible from outside (check 5.1)
+
+This is basically to show you there’s other ways of initialising data in your instances. You don’t have to write everything in this object, you may also create the data variable before creating your Vue instance and then simply pass it as the value for this key pair value (data: data). It works in the same way, this is one of the key things of this chapter. Vue.js doesn’t create its own enclosed world, it’s normal JavaScript. It lives in the JS code and it’s able to interact with the JS code around it. We can use a normal JS variable to populate our data.
+
+*Side note: Of course we don’t want to mess with things under control of Vue.js, so if we control a part of the HTML code with Vue.js, you probably don’t want to access it with Vanilla JS because it could mess up the reactivity Vue provides. You might try to access it when it doesn’t exists. But generally there’s nothing wrong with mixing your normal JS code and Vue.js, you don’t have to create a Vue.js only application. This is important to understand, that you can do that, too.*
