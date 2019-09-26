@@ -388,16 +388,16 @@ This is a simple way of fetching data and putting it into and array for example.
 
 - main file, where 'contacts.blade.php' is being put out:
 
-	Route::get('/', function() { 
-    	return view('contacts');
-	});
+		Route::get('/', function() { 
+    		return view('contacts');
+		});
 
 
 - raw data I gave a separate route 'contacts':
 
-	Route::get('contacts', function() {  
-   	 return json_decode(file_get_contents(storage_path('contacts.json'))); 
-	});
+		Route::get('contacts', function() {  
+   	 	return json_decode(file_get_contents(storage_path('contacts.json'))); 
+		});
 
 Let’s take a closer look at 
 
