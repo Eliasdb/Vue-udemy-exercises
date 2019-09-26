@@ -349,6 +349,7 @@ Here we have a route and a controller. Now create it in the folder app > http > 
 	}
 
 *Important note:*
+
 The php artisan command opens up a list of commands you can use. There’s a section of ‘make’ commands, which basically all generate files. A controller, an event, a model. Let’s select the make:controller class.
 -> **php artisan make:controller ContactsController**
 
@@ -356,6 +357,7 @@ The php artisan command opens up a list of commands you can use. There’s a sec
 **Vue Ajax requests with Axios**
 
 *Setup*
+
 When creating a new Vue app, we can see our routes in web.php, one of them goes to a preset page welcome.blade.php(I’m working on contacts.blade.php). We’re gonna delete all of the preset code and make our own Vue project with basic structure and put Vue + the app.js file we’re working with between script tags. Also, make sure to run the npm run watch command to compile js and if you make a specific file, add it to the webpack.mix.js file.
 
 
