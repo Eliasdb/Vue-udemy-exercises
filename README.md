@@ -404,6 +404,7 @@ Let’s take a closer look at
 - json_decode = takes JSON encoded string and converts it into a PHP variable
 - file_get_contents = reads content of a file into a string
 - storage_path = returns a fully qualified path to the storage directory
+
 *contacts.json is located in the storage folder 
 
 This outputs all of the json data as we want it to.
