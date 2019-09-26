@@ -364,6 +364,13 @@ When creating a new Vue app, we can see our routes in web.php, one of them goes 
 **First part - created() and axios**
 
 
+**Created()**(!)
+
+In the created hook, you will be able to access reactive data and events are active. Templates and Virtual DOM have not yet been mounted or rendered. 
+
+-> Created is called earlier in order to trigger actions like **data fetching from the API backend**. 
+
+
 **Axios**
 
 There’s a lot of ways you can go about this, but one of the more popular ones is the axios library, which is promise based. It’s nice and simple. We can use npm to install, but to start we’re going to reference it as a CDN. 
@@ -384,13 +391,6 @@ This is a simple way of fetching data and putting it into and array for example.
 	<li v-for="skill in skills" v-text="skill"></li>  // @{{ skill }} between tags is fine too
 
 ^ looping through the array skills with chosen keyword.
-
-
-**Created()**(!)
-
-In the created hook, you will be able to access reactive data and events are active. Templates and Virtual DOM have not yet been mounted or rendered. 
-
--> Created is called earlier in order to trigger actions like **data fetching from the API backend**. 
 
 
 **Some functions highlighted on the web.php file:**
