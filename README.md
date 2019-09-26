@@ -354,14 +354,17 @@ The php artisan command opens up a list of commands you can use. There’s a sec
 -> **php artisan make:controller ContactsController**
 
 
-**Vue Ajax requests with Axios**
+**Vue Ajax requests**
 
 *Setup*
 
 When creating a new Vue app, we can see our routes in web.php, one of them goes to a preset page welcome.blade.php(I’m working on contacts.blade.php). We’re gonna delete all of the preset code and make our own Vue project with basic structure and put Vue + the app.js file we’re working with between script tags. Also, make sure to run the npm run watch command to compile js and if you make a specific file, add it to the webpack.mix.js file.
 
 
-**First part - created() and axis**
+**First part - created() and axios**
+
+
+**Axios**
 
 There’s a lot of ways you can go about this, but one of the more popular ones is the axios library, which is promise based. It’s nice and simple. We can use npm to install, but to start we’re going to reference it as a CDN. 
 
@@ -383,8 +386,12 @@ This is a simple way of fetching data and putting it into and array for example.
 ^ looping through the array skills with chosen keyword.
 
 
-**Some functions highlighted on the web.php file:**
+**Created()**(!)
 
+In the created hook, you will be able to access reactive data and events are active. Templates and Virtual DOM have not yet been mounted or rendered.
+
+
+**Some functions highlighted on the web.php file:**
 
 - main file, where 'contacts.blade.php' is being put out:
 
