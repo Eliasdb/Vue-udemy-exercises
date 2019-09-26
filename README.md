@@ -388,7 +388,9 @@ This is a simple way of fetching data and putting it into and array for example.
 
 **Created()**(!)
 
-In the created hook, you will be able to access reactive data and events are active. Templates and Virtual DOM have not yet been mounted or rendered.
+In the created hook, you will be able to access reactive data and events are active. Templates and Virtual DOM have not yet been mounted or rendered. 
+
+-> Created is called earlier in order to trigger actions like **data fetching from the API backend**. 
 
 
 **Some functions highlighted on the web.php file:**
