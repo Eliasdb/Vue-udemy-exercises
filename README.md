@@ -419,9 +419,31 @@ Let’s take a closer look at
 This outputs all of the json data as we want it to.
 
 
+**Specific data of JSON file in table**
+
+If we for example only need a first and last name as an output. Following code does just that:
 
 
+	<div id="app">
+           	 <table>
+             	   <thead>
+              	  <tr>
+                	    <th>First name</th>
+                   	 <th>Last name</th>
+             	   </tr>
+            	    </thead>
+	
+            	    <tbody>
+              	  <tr v-for=“contact in contacts”>
+                 	   <td v-text=“contact.first_name"></td>
+                 	   <td v-text=“contact.last_name"></td>
+              	  </tr>
+             	   </tbody>
 
+           	 </table>
+	</div>
+
+It loops through the array and outputs the data in the correct cells.
 
 
 
