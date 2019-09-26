@@ -378,7 +378,7 @@ There’s a lot of ways you can go about this, but one of the more popular ones 
 
 This is a simple way of fetching data and putting it into and array for example. We output it in our HTML like this:
 
-	<li v-for="skill in skills" v-text="skill"></li> <!-- @{{ skill }} between tags is fine too -->
+	<li v-for="skill in skills" v-text="skill"></li>  // @{{ skill }} between tags is fine too
 
 ^ looping through the array skills with chosen keyword.
 
