@@ -383,6 +383,31 @@ This is a simple way of fetching data and putting it into and array for example.
 ^ looping through the array skills with chosen keyword.
 
 
+**Some functions highlighted on the web.php file:**
+
+
+- main file, where 'contacts.blade.php' is being put out:
+
+	Route::get('/', function() { 
+    	return view('contacts');
+	});
+
+
+- raw data I gave a separate route 'contacts':
+
+	Route::get('contacts', function() {  
+   	 return json_decode(file_get_contents(storage_path('contacts.json'))); 
+	});
+
+Let’s take a closer look at 
+
+- json_decode = takes JSON encoded string and converts it into a PHP variable
+- file_get_contents = reads content of a file into a string
+- storage_path = returns a fully qualified path to the storage directory
+
+This outputs all of the json data as we want it to.
+
+
 
 
 
