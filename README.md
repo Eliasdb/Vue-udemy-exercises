@@ -307,3 +307,89 @@ This will work, this is normal JS, you can add a property like this, but what yo
 This is basically to show you there’s other ways of initialising data in your instances. You don’t have to write everything in this object, you may also create the data variable before creating your Vue instance and then simply pass it as the value for this key pair value (data: data). It works in the same way, this is one of the key things of this chapter. Vue.js doesn’t create its own enclosed world, it’s normal JavaScript. It lives in the JS code and it’s able to interact with the JS code around it. We can use a normal JS variable to populate our data.
 
 *Side note: Of course we don’t want to mess with things under control of Vue.js, so if we control a part of the HTML code with Vue.js, you probably don’t want to access it with Vanilla JS because it could mess up the reactivity Vue provides. You might try to access it when it doesn’t exists. But generally there’s nothing wrong with mixing your normal JS code and Vue.js, you don’t have to create a Vue.js only application. This is important to understand, that you can do that, too.*
+
+
+
+
+
+
+
+
+## Vue-infinite-scrolling/working with Laravel - Laracasts
+
+**Basic routing and views**
+
+*How to set up a route:*
+
+
+	Route::get(‘/contacts’, function() {
+	return view(‘contacts’);
+	});
+
+
+This sets up a basic route, the url projectName.test/contacts shows the contacts.blade.php file in the folder ‘view’. You can also return strings or JSON.
+
+
+
+**Routing to controllers**
+
+*How to set up a controller:*
+
+
+	Route::get('/contacts', 'ContactsController@show'); 
+
+Here we have a route and a controller. Now create it in the folder app > http > controllers. Select create new PHP class, give it a name. Now the controller exists, but the method we attached to it doesn’t exist. Create it in the php file, like so:
+
+	class ContactsController
+	{
+		public function show()
+		{
+			return ‘hello’;
+		}
+	}
+
+*Important note:*
+The php artisan command opens up a list of commands you can use. There’s a section of ‘make’ commands, which basically all generate files. A controller, an event, a model. Let’s select the make:controller class.
+-> **php artisan make:controller ContactsController**
+
+
+**Vue Ajax requests with Axios**
+
+*Setup*
+When creating a new Vue app, we can see our routes in web.php, one of them goes to a preset page welcome.blade.php(I’m working on contacts.blade.php). We’re gonna delete all of the preset code and make our own Vue project with basic structure and put Vue + the app.js file we’re working with between script tags. Also, make sure to run the npm run watch command to compile js and if you make a specific file, add it to the webpack.mix.js file.
+
+
+**First part - created() and axis**
+
+There’s a lot of ways you can go about this, but one of the more popular ones is the axios library, which is promise based. It’s nice and simple. We can use npm to install, but to start we’re going to reference it as a CDN. 
+
+	new Vue({
+   	el: '#app',
+	
+	
+   	created() { // make an ajax request to our server and render the response, the endpoint I want to hit is /contacts
+
+
+       	axios.get('/contacts').then(response => this.skills = response.data);
+  	 }
+	});
+
+This is a simple way of fetching data and putting it into and array for example. We output it in our HTML like this:
+
+	<li v-for="skill in skills" v-text="skill"></li> <!-- @{{ skill }} between tags is fine too -->
+
+^ looping through the array skills with chosen keyword.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
