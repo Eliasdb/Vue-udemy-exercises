@@ -508,7 +508,7 @@ What to do? The community kind of agrees on taking const as a default and using 
 *Side note: you can also use it like this: `${name} is cool.` with template strings(the two back ticks)*
 
 - map() = creates new array with the output chosen by you(?)
-
+- Arrow functions do not have their own this. They are not well suited for defining object methods. Arrow functions are not hoisted. They must be defined before they are used.
 
 **Default parameters**
 
