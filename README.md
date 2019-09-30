@@ -653,6 +653,19 @@ Let’s say you have the following setup:
 - trim() = removes white space at the beginning and at the end of a string
 
 
+**Using the template literals in Vue.js**
+In Vue, you could easily implement it like so:
+
+	new Vue({
+		template: `
+			<div class=“Alert”>
+				<p>Foobar</p>
+			</div>
+		`
+	});
+
+**Awesome object enhancements**
+
 
 
 
