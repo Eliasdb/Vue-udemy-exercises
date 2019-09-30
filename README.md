@@ -475,7 +475,9 @@ The declaration of a variable gets hoisted to the top of the scope. It’s a goo
 
 They are block level declarations, a block is the space between {}. Let doesn’t hoist because of this. We get a ReferenceError kind of like we would naturally expect. In other words, we didn’t declare or initialise foo anywhere in an else statement, which makes sense. A lot of people prefer let.
 
-*When to use var or let?* There is no reason to use var generally, maybe for a specific use case, a global variable or something.
+*When to use var or let?* 
+
+There is no reason to use var generally, maybe for a specific use case, a global variable or something.
 
 **Const**
 
