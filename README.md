@@ -664,8 +664,85 @@ In Vue, you could easily implement it like so:
 		`
 	});
 
+
 **Awesome object enhancements**
 
+*Old way:*
+
+	function getPerson() {
+		let name = ‘Elias’;
+		let age = 25;
+	
+		return {
+			name: name,
+			age: age
+		};
+
+
+*New way:*
+
+	function getPerson() {
+		let name = ‘Elias’;
+		let age = 25;
+
+		return {name, age};
+	}
+
+	alert(getPerson().name);
+
+
+*Old Vue example:*
+
+	import HomeView from ‘./components/home-view.vue’;
+
+	new Vue({
+		components: {
+			HomeView: HomeView
+		}
+	})
+
+=> you can get rid of the value now, the second ‘HomeView’.
+
+
+**Shorthands: objects and methods**
+
+*Old ES5 way:*
+
+	function getPerson() {
+		let name = ‘Elias’;
+		let age = 25;
+
+		return { 
+			name,
+			age,
+			greet: function() {
+				return: ‘Hello, ‘ + this.name;
+			}
+		};
+
+		alert(getPerson().greet());
+	
+
+*New ES6 way:*
+
+	function getPerson() {
+		let name = ‘Elias’;
+		let age = 25;
+
+		return { 
+			name,
+			age,
+			greet() {
+				return: `Hello,  ${this.name}`;
+			}
+		};
+
+	alert(getPerson().greet());
+
+=> Get rid of the function and add back ticks, as well as the literals.
+
+
+**Object destructuring**
 
 
 
