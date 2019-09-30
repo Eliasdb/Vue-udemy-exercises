@@ -859,9 +859,9 @@ This is the basic setup of a class, but you can add some things to it:
 			this.email = email;
 		}
 
-		**static register(username, email) {
+		static register(username, email) {
 			return new User(username, email);
-		}**
+		}
 
 		changeEmail(newEmail) {
 			this.email = newEmail;
@@ -882,9 +882,9 @@ This method is only callable directly off of the user object. You can only use i
 			this.email = email;
 		}
 
-		**static register(…args) { //rest operator:
+		static register(…args) { //rest operator:
 			return new User(…args); //spread operator:
-		}**
+		}
 
 		changeEmail(newEmail) {
 			this.email = newEmail;
@@ -908,9 +908,9 @@ This gives an array of arguments, but each of the items in that array will be co
 			return new User(…args); //spread operator:
 		}
 
-		**get/set foo() {
+		get/set foo() {
 			return ‘foo’;
-		}**
+		}
 
 		changeEmail(newEmail) {
 			this.email = newEmail;
@@ -919,7 +919,7 @@ This gives an array of arguments, but each of the items in that array will be co
 
 	let user = new User.register(‘ProperDoofus’, ’jslearning@blendr.io’);
 
-	**console.log(**user.foo**);**
+	console.log(user.foo);
 
 
 
