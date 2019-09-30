@@ -541,6 +541,7 @@ What to do? The community kind of agrees on taking const as a default and using 
 **Rest and spread**
 
 **Rest operator**
+
 ‘…numbers’ indicates ‘the rest of the numbers’ incapsulated in an array, so you can add as many numbers as you like to the sum.
 
 *Example using the old way:*
@@ -556,6 +557,7 @@ What to do? The community kind of agrees on taking const as a default and using 
 
 
 **Spread operator**
+
 Does the opposite of rest, it takes the array and converts it into single arguments. 
 
 *Example using the old way:*
