@@ -503,10 +503,9 @@ What to do? The community kind of agrees on taking const as a default and using 
 
 -> exact same thing
 
-*Side note: you can also use it like this: `${name} is cool.` with template strings (``)*
+*Side note: you can also use it like this: `${name} is cool.` with template strings *
 
 -> map function creates new array with the output chosen by you(?)
-
 
 **Default parameters**
 
@@ -533,6 +532,54 @@ What to do? The community kind of agrees on taking const as a default and using 
 
 -> does the same thing, just makes a separate function and refers it between parentheses
 
+
+**Rest and spread**
+
+- Rest operator = ‘…numbers’ indicates ‘the rest of the numbers’ incapsulated in an array, so you can add as many numbers as you like to the sum
+- reduce() = method executes a reducer function on each element of the array, resulting in a single output value: returns the sum of all the values
+
+*Example using the old way:*
+	function sum (…numbers) {
+	return numbers.reduce(function(prev, current) {
+	return prev + current;
+	}};
+	}
+	console.log(sum(1,2,3)); // 6
+
+
+**Spread operator** = does the opposite of rest, it takes the array and converts it into single arguments. 
+
+*Example using the old way:*
+
+	function sum(x,y) { // 1, 2
+	return x + y;
+	}
+	let nums = [1,2];
+	console.log(sum(…nums));
+
+Think of the rest and the spread operator as companions. In one case you want to translate any sequence of arguments into an array(like you can keep adding numbers to the sum() method, but not just any value of course.
+In the second example you want to split an array into arguments to a function.
+
+*Side note:*
+Function parameters are the names listed in the function.
+Function arguments are the real values passed to (and received by) the function.
+
+
+**Refactoring this to ES6:**
+
+	function sum(…numbers) {
+	 return numbers.reduce((prev, current) => prev + current);
+	}
+	sum(1,2,3); // 6
+
+or each on its own line:
+
+	function sum(…numbers) {
+	 return numbers.reduce(
+	(prev, current) => prev + current;
+	);
+	}
+	sum(1,2,3); // 6
 
 
 
