@@ -805,3 +805,122 @@ In Vue, you could easily implement it like so:
 Basically put your code between ${}, backticks, it will still work without having to type everything out. These shorthands are a huge timesaver. 
 
 
+**Classes**
+
+*How we used to handle classes in ES5:*
+
+
+	function User(username, email) {
+		this.username = username;
+		this.email = email;
+	}
+
+	User.prototype.changeEmail = function(newEmail) {
+		this.email = newEmail;
+	};
+
+	var user = new User(‘ProperDoofus’, ‘jslearning@blendr.io’);
+
+
+	user.changeEmail(‘foo@example.com’);
+
+	console.dir(user);
+
+- console.dir() = hierarchical listing of all properties of an object
+
+
+*New ES6 way:*
+
+	class User {
+
+		constructor(username, email) {
+			this.username = username;
+			this.email = email;
+		}
+
+		changeEmail(newEmail) {
+			this.email = newEmail;
+		}
+	}
+
+	let user = new User(‘ProperDoofus’, ’jslearning@blendr.io’);
+
+	user.changeEmail(‘phplearning@blendr.io’);
+
+	console.dir(user);
+
+
+This is the basic setup of a class, but you can add some things to it:
+
+	class User {
+
+		constructor(username, email) {
+			this.username = username;
+			this.email = email;
+		}
+
+		**static register(username, email) {
+			return new User(username, email);
+		}**
+
+		changeEmail(newEmail) {
+			this.email = newEmail;
+		}
+	}
+
+	let user = new User.**register**(‘ProperDoofus’, ’jslearning@blendr.io’);
+
+	console.dir(user);
+
+
+This method is only callable directly off of the user object. You can only use it by using User.register. It works the same as the previous examples though. You can also add the rest and spread operator here:
+
+	class User {
+
+		constructor(username, email) {
+			this.username = username;
+			this.email = email;
+		}
+
+		**static register(…args) { //rest operator:
+			return new User(…args); //spread operator:
+		}**
+
+		changeEmail(newEmail) {
+			this.email = newEmail;
+		}
+	}
+
+	let user = new User.register(‘ProperDoofus’, ’jslearning@blendr.io’);
+
+	console.dir(user);
+
+This gives an array of arguments, but each of the items in that array will be converted to single arguments or values. We also have accessors: setters and getters:
+
+	class User {
+
+		constructor(username, email) {
+			this.username = username;
+			this.email = email;
+		}
+
+		static register(…args) { //rest operator:
+			return new User(…args); //spread operator:
+		}
+
+		**get/set foo() {
+			return ‘foo’;
+		}**
+
+		changeEmail(newEmail) {
+			this.email = newEmail;
+		}
+	}
+
+	let user = new User.register(‘ProperDoofus’, ’jslearning@blendr.io’);
+
+	**console.log(**user.foo**);**
+
+
+
+
