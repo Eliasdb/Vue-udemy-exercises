@@ -1023,6 +1023,50 @@ import { TaskCollection, foo } from ‘./TaskCollection;
 - We’ve learned how to import using two ways (default, {other})
 
 
+**Promises 101**
 
+Take a look at this
+
+	var button = document.querySelector(‘button’);
+	console.log(‘before’)
+	button.onclick = function () {
+		console.log(‘I was clicked’);
+	};
+	console.log(‘after’);
+
+This is basically asynchronous in a way, the function only gets executed when you click the button. These nested anonymous functions you can’t use a lot. More than three can really get difficult to maintain. Promises are one way where we can solve this and get away from callback hell.
+
+
+**What is a promise?**
+
+Literally nothing more than a placeholder or a holding spot for an operation that has not yet taken place. So it’s a promise to perform an action. It hasn’t done that yet, it’s not a confirmation. It’s a promise to perform the action. Here’s what I think you’ll find: you make use of promises without knowing what they really are. It’s likely the tool or library I’m using is doing that behind the scenes.
+
+*For example:*
+
+	var promise = this.$http.get(“/some/path’);
+
+This is an AJAX request which returns a promise. It’s gonna take some amount of time to process. It’s something you can operate upon when it’s done. You can do some stuff like this with it:
+
+
+	promise.then(function(data) {
+		// promise to get me the data at this endpoint and when you have it, once you’re done, I want to do the following code
+	}); 
+
+	promise.catch(function(err) {
+		// catch anything that went wrong and handle that in some way
+	});
+
+
+These cases are how you should think of this: a placeholder for an action that has not yet completed or even started just yet. But once it has completed, then proceed and perform the following action. You can refactor this too:
+
+
+	promise.then(function(data) {
+	}, function(err) {
+	});
+
+
+Making this the second argument to .then. On success(data) and on error(err).
+
+All you really need to know to start is when you’re reading an API or a library, and they tell you to call .then, that’s your indication that the thing before it, is a promise. You’re going to find that with a lot of things that should be asynchronous. Like an AJAX request or reading a file or processing something that takes a very long time. They will return a promise to you which you can then operate on at a later time.
 
 
