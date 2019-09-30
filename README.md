@@ -504,6 +504,7 @@ What to do? The community kind of agrees on taking const as a default and using 
 -> exact same thing
 
 *Side note: you can also use it like this: `${name} is cool.` with template strings (``)*
+
 -> map function creates new array with the output chosen by you(?)
 
 
