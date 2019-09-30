@@ -744,5 +744,64 @@ In Vue, you could easily implement it like so:
 
 **Object destructuring**
 
+*Old ES5 way:*
+
+	function getData(data) {
+		let/var results = data.results;
+		let/var count = data.count;
+
+		console.log(results, count);
+	}
+
+	getData({
+		name: ‘Karen’,
+		age: 32,
+		results: [‘foo’, ‘bar’],
+		count: 30
+	};
+
+=> assigning an object property to a variable, then use it. This is the old way.
+
+*New ES6 way:*
+
+	function getData({ results, count }) {
+		console.log(results, count);
+	}
+
+	getData({
+		name: ‘Karen’,
+		age: 32,
+		results: [‘foo’, ‘bar’],
+		count: 30
+	};
+
+
+*Second ES5 example:*
+
+	function greet(person) {
+		let name = person.name;
+		let age = person.age;
+
+		console.log(‘Hello, ‘ + name + ‘. You are ‘ + age);
+	}
+
+	greet({
+		name: ‘Elias’,
+		age: 24
+	});
+
+
+*Second ES6 example:*
+
+ 	function greet( { name, age }) {
+		console.log(`Hello, ${name}. You are ${age}.`);
+	}
+
+	greet({
+		name: ‘Elias’,
+		age: 22
+	});
+
+Basically put your code between ${}, backticks, it will still work without having to type everything out. These shorthands are a huge timesaver. 
 
 
