@@ -445,7 +445,90 @@ If we for example only need a first and last name as an output. Following code d
 
 It loops through the array and outputs the data in the correct cells.
 
+Javascript ES6 - Laracasts Crash Course
 
+**Babel - JS Compiler**
+
+
+**Setup**
+
+1. npm install —save-dev babel-cli
+2. setting up “build”: “babel src -d output” in json file
+3. preset ES6 transformations: npm install babel-preset-es2015 —save-dev
+4. specifying preset: create .babelrc, specifying “presets”: [“es2015”]
+
+-> npm run build: compiling
+
+-> used in production
+
+Laravel Elixir -> gulp will just automatically compile JS
+
+
+**To var, let or const**
+
+**Hoisting**
+
+The declaration of a variable gets hoisted to the top of the scope. It’s a good practice to declare variables on top and then you can assign them whenever you need to.
+
+
+**Let and const**
+They are block level declarations, a block is the space between {}. Let doesn’t hoist because of this. We get a ReferenceError kind of like we would naturally expect. In other words, we didn’t declare or initialise foo anywhere in an else statement, which makes sense. A lot of people prefer let.
+
+When to use var or let? There is no reason to use var generally, maybe for a specific use case, a global variable or something.
+
+**Const**
+The binding is immutable, but not the value of const. If it’s an array for example, you can still push another element to it. You can modify the value, like adding, but not reassigning. The name constant doesn’t refer to constant values or even immutable values.
+
+What to do? The community kind of agrees on taking const as a default and using let if you know it’s gonna change. Never use var again. Some people though say let as default, var at top level and const when you do not want reassignment. It’s also kind of a message to who reads your code.
+
+**Arrow functions**
+
+
+*The old way:*
+	
+	let names = [‘Elias’, ‘Ben’, ‘Olivier’];
+	names = names.map(function(name) {
+	return name + ‘ is cool.’;
+	});
+
+-> console.log(names) will output “Elias is cool, Ben is cool, Olivier is cool”
+
+
+*The new way:*
+
+	let names = [‘Elias’, ‘Ben’, ‘Olivier’];
+	names = names.map(name => name + ‘ is cool.’);
+
+-> exact same thing
+
+*Side note: you can also use it like this: `${name} is cool.` with template strings (``)*
+-> map function creates new array with the output chosen by you(?)
+
+
+**Default parameters**
+
+*The old way:*
+
+	function applyDiscount (cost, discount) {
+ 		discount = discount || .10;
+		return cost - (cost * discount);
+		}
+		alert(applyDiscount(100));
+
+-> outputs 90
+
+*The new way:*
+	function defaultDiscountRate()
+	{
+	return .10;
+	}
+	
+	function applyDiscount (cost, discount =  defaultDiscountRate() OR .10) {
+		return cost - (cost * discount);
+	}	
+	alert(applyDiscount(100));
+
+-> does the same thing, just makes a separate function and refers it between parentheses
 
 
 
