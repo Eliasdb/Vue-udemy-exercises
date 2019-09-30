@@ -922,5 +922,36 @@ This gives an array of arguments, but each of the items in that array will be co
 	console.log(user.foo);
 
 
+One very cool thing about classes and ECMAScript 6 is that they are first class citizens and this just means they can be passed around just about anywhere. You can use them as a value. So for example:
+
+	function log(strategy) {
+		strategy.handle();
+	}
+
+	class ConsoleLogger {
+		handle() {
+			console.log(‘Using the console strat to log.’);
+		}
+	}
+
+	log(new ConsoleLogger);
+
+
+*Quick recap:*
+
+- In ES5: create constructor, assign methods to prototype object and then make a new variable with chosen data.
+- In ES6: 
+    - create class, assign attributes or properties in the constructor
+    - any methods on prototype can be set in a much easier way
+    - ending is still ‘newing it up’
+- classes are first class citizens and they can be used as values anywhere
+- get/set accessors -> computed properties
+- static: prefix the word and you can access it directly off the class without first having to create an instance of the class
+
+
+**Modules**
+ 
+
+
 
 
