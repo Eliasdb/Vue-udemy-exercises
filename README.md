@@ -483,14 +483,14 @@ The binding is immutable, but not the value of const. If it’s an array for exa
 
 What to do? The community kind of agrees on taking const as a default and using let if you know it’s gonna change. Never use var again. Some people though say let as default, var at top level and const when you do not want reassignment. It’s also kind of a message to who reads your code.
 
-**Arrow functions**
 
+**Arrow functions**
 
 *The old way:*
 	
 	let names = [‘Elias’, ‘Ben’, ‘Olivier’];
 	names = names.map(function(name) {
-	return name + ‘ is cool.’;
+		return name + ‘ is cool.’;
 	});
 
 -> console.log(names) will output “Elias is cool, Ben is cool, Olivier is cool”
@@ -503,32 +503,34 @@ What to do? The community kind of agrees on taking const as a default and using 
 
 -> exact same thing
 
-*Side note: you can also use it like this: `${name} is cool.` with template strings(the two ticks)*
+*Side note: you can also use it like this: `${name} is cool.` with template strings(the two back ticks)*
 
--> map function creates new array with the output chosen by you(?)
+- map() = creates new array with the output chosen by you(?)
+
 
 **Default parameters**
 
 *The old way:*
 
-		function applyDiscount (cost, discount) {
- 		discount = discount || .10;
+	function applyDiscount (cost, discount) {
+ 		discount = discount || .10;		
 		return cost - (cost * discount);
-		}
-		alert(applyDiscount(100));
+	}
+	
+	alert(applyDiscount(100));
 
 => which outputs 90
 
 *The new way:*
 	
-	function defaultDiscountRate()
-	{
-	return .10;
+	function defaultDiscountRate(){
+		return .10;
 	}
 	
 	function applyDiscount (cost, discount =  defaultDiscountRate() OR .10) {
 		return cost - (cost * discount);
-	}	
+	}
+	
 	alert(applyDiscount(100));
 
 => does the same thing, just makes a separate function and refers it between parentheses
@@ -536,26 +538,29 @@ What to do? The community kind of agrees on taking const as a default and using 
 
 **Rest and spread**
 
-- Rest operator = ‘…numbers’ indicates ‘the rest of the numbers’ incapsulated in an array, so you can add as many numbers as you like to the sum
-- reduce() = method executes a reducer function on each element of the array, resulting in a single output value: returns the sum of all the values
+**Rest operator**
+‘…numbers’ indicates ‘the rest of the numbers’ incapsulated in an array, so you can add as many numbers as you like to the sum.
 
 *Example using the old way:*
 
 	function sum (…numbers) {
-	return numbers.reduce(function(prev, current) {
-	return prev + current;
-	}};
+		return numbers.reduce(function(prev, current) {
+		return prev + current;
+		}};
 	}
 	console.log(sum(1,2,3)); // 6
 
+- reduce() = method executes a reducer function on each element of the array, resulting in a single output value: returns the sum of all the values
 
-**Spread operator** = does the opposite of rest, it takes the array and converts it into single arguments. 
+
+**Spread operator**
+Does the opposite of rest, it takes the array and converts it into single arguments. 
 
 *Example using the old way:*
 
 	function sum(x,y) { // 1, 2
-	return x + y;
-	}
+		return x + y;
+		}
 	let nums = [1,2];
 	console.log(sum(…nums));
 
@@ -563,26 +568,85 @@ Think of the rest and the spread operator as companions. In one case you want to
 In the second example you want to split an array into arguments to a function.
 
 *Side note:*
-Function parameters are the names listed in the function.
-Function arguments are the real values passed to (and received by) the function.
+
+Function *parameters* are the names listed in the function.
+Function *arguments* are the real values passed to (and received by) the function.
 
 
 **Refactoring this to ES6:**
 
 	function sum(…numbers) {
-	 return numbers.reduce((prev, current) => prev + current);
+		return numbers.reduce((prev, current) => prev + current);
 	}
+	
 	sum(1,2,3); // 6
 
 or each on its own line:
 
 	function sum(…numbers) {
-	 return numbers.reduce(
-	(prev, current) => prev + current;
-	);
+		return numbers.reduce(
+		(prev, current) => prev + current;
+		);
 	}
+	
 	sum(1,2,3); // 6
 
+
+**Template strings or literals**
+
+Imagine you have a block of HTML and you’re going to throw it into the DOM or maybe you’re using Vue. 
+Let’s say you have the following setup: 
+
+	let template = [
+		‘<div class=“Alert”>’,
+			‘<p>Foo</p>’,
+		‘</div>’
+	].join(‘’);
+
+	console.log(template);
+
+*New way:*
+
+	let template = `
+		<div class=“Alert”>,
+		<p>Foo</p>,
+		</div>
+	`;
+
+	console.log(template);
+
+- join() = joins elements of array into a string
+
+
+**Case where foo is dynamic:**
+
+*Old way:*
+
+	let name = ‘Foo’;
+	‘<p>’ + name + ‘</p>’
+	let template = `
+		<div class=“Alert”>,
+			<p>Foo</p>,
+		</div>
+	`;
+
+	console.log(template);
+
+
+*New way:*
+
+	let name = ‘Foo’;
+	let template = `
+		<div class=“Alert”>,
+			<p>${name}</p>,
+		</div>
+		`.trim();
+
+	console.log(template);
+
+-> Back ticks and ${}, the template literal do the same thing.
+
+- trim() = removes white space at the beginning and at the end of a string
 
 
 
