@@ -472,11 +472,13 @@ The declaration of a variable gets hoisted to the top of the scope. It’s a goo
 
 
 **Let and const**
+
 They are block level declarations, a block is the space between {}. Let doesn’t hoist because of this. We get a ReferenceError kind of like we would naturally expect. In other words, we didn’t declare or initialise foo anywhere in an else statement, which makes sense. A lot of people prefer let.
 
-When to use var or let? There is no reason to use var generally, maybe for a specific use case, a global variable or something.
+*When to use var or let?* There is no reason to use var generally, maybe for a specific use case, a global variable or something.
 
 **Const**
+
 The binding is immutable, but not the value of const. If it’s an array for example, you can still push another element to it. You can modify the value, like adding, but not reassigning. The name constant doesn’t refer to constant values or even immutable values.
 
 What to do? The community kind of agrees on taking const as a default and using let if you know it’s gonna change. Never use var again. Some people though say let as default, var at top level and const when you do not want reassignment. It’s also kind of a message to who reads your code.
