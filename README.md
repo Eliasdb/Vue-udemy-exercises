@@ -509,7 +509,7 @@ What to do? The community kind of agrees on taking const as a default and using 
 
 *The old way:*
 
-	function applyDiscount (cost, discount) {
+		function applyDiscount (cost, discount) {
  		discount = discount || .10;
 		return cost - (cost * discount);
 		}
