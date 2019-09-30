@@ -503,7 +503,7 @@ What to do? The community kind of agrees on taking const as a default and using 
 
 -> exact same thing
 
-*Side note: you can also use it like this: `${name} is cool.` with template strings *
+*Side note: you can also use it like this: `${name} is cool.` with template strings(the two ticks)*
 
 -> map function creates new array with the output chosen by you(?)
 
@@ -517,7 +517,7 @@ What to do? The community kind of agrees on taking const as a default and using 
 		}
 		alert(applyDiscount(100));
 
--> outputs 90
+=> which outputs 90
 
 *The new way:*
 	
@@ -531,7 +531,7 @@ What to do? The community kind of agrees on taking const as a default and using 
 	}	
 	alert(applyDiscount(100));
 
--> does the same thing, just makes a separate function and refers it between parentheses
+=> does the same thing, just makes a separate function and refers it between parentheses
 
 
 **Rest and spread**
