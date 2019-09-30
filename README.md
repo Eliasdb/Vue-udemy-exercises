@@ -445,7 +445,7 @@ If we for example only need a first and last name as an output. Following code d
 
 It loops through the array and outputs the data in the correct cells.
 
-Javascript ES6 - Laracasts Crash Course
+# Javascript ES6 - Laracasts Crash Course
 
 **Babel - JS Compiler**
 
