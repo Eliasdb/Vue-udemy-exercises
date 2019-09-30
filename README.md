@@ -951,6 +951,76 @@ One very cool thing about classes and ECMAScript 6 is that they are first class 
 
 **Modules**
  
+You can take of modules as just simple files. Don’t complicate it any more than that. Maybe we want a module for a task collection. Let’s create a TaskCollection.js file. The old way of doing things was linking different scripts in your HTML file with maybe a specific order, because certain scripts might be depending on others. This quickly becomes a nightmare, especially for larger projects. The solution they came up with was modules.
+
+Our TaskCollection.js looks like this:
+
+
+	export  class TaskCollection {
+		constructor(tasks = []) {
+			this.tasks = tasks;
+	}
+
+		dump() {
+			console.log(this.tasks);
+		}
+
+	}
+
+	*export let foo = ‘bar’;
+
+	*export myfunc = function() {};
+
+* You can export as much as you want in a file. Variables, functions. The truth is a lot of the time you’re really just exporting one thing.
+
+
+- dump() = simply dumps all of the tasks to the console in this case
+
+
+Now we want to export this behaviour outside of the file. ES2015 has a solution, whereas they used to work with CommonJS, AMD or UMD. The differences are mostly syntax and approach. A quick overview of those:
+
+
+- CommonJS: in another file, you can import this code:
+	  module.exports = {
+		foo: ‘bar’;
+	  }
+
+- AMD:
+	define(’TaskCollection’, [‘_’], function () { 
+	// here you create the module
+	});
+	
+
+This is just an illustration, you don’t need to worry about that stuff anymore with ES6.
+
+
+*Old importing way:*
+
+var TaskCollection = require(‘./TaskCollection’); // CommonJS 
+
+
+*New importing way:*
+
+import { TaskCollection, foo } from ‘./TaskCollection;
+
+// newing up class in main.js
+
+new TaskCollection([
+	‘Learn Vue’, 
+	‘Understand JS first’,
+	‘Study Laravel too’
+]).dump();
+
+- **export default** in TC.js => import TaskCollection from ‘./TaskCollection; (without {})
+- **exporting a variable** => import TaskCollection, { foo } from ‘./TaskCollection;
+- **exporting at the bottom works the same** => export default TaskCollection; 
+
+
+**Conclusion**
+
+- We’ve learned to make a module (just a file) that exposes or exports behaviour
+- We’ve learned how to import using two ways (default, {other})
+
 
 
 
