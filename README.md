@@ -1070,3 +1070,18 @@ Making this the second argument to .then. On success(data) and on error(err).
 All you really need to know to start is when you’re reading an API or a library, and they tell you to call .then, that’s your indication that the thing before it, is a promise. You’re going to find that with a lot of things that should be asynchronous. Like an AJAX request or reading a file or processing something that takes a very long time. They will return a promise to you which you can then operate on at a later time.
 
 
+**Basic structure of a promise**
+
+	var timer = function(length) {
+		return new Promise(function (resolve, reject) {
+			console.log(‘Init promise’);
+			setTimeout(function () {
+				console.log(‘Timeout done.’);
+
+				resolve();
+			}, length);
+		});
+	};
+
+	timer(4000).then(() => alert(‘All done!’));
+
