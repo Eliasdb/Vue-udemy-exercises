@@ -520,6 +520,7 @@ What to do? The community kind of agrees on taking const as a default and using 
 -> outputs 90
 
 *The new way:*
+	
 	function defaultDiscountRate()
 	{
 	return .10;
@@ -539,6 +540,7 @@ What to do? The community kind of agrees on taking const as a default and using 
 - reduce() = method executes a reducer function on each element of the array, resulting in a single output value: returns the sum of all the values
 
 *Example using the old way:*
+
 	function sum (…numbers) {
 	return numbers.reduce(function(prev, current) {
 	return prev + current;
