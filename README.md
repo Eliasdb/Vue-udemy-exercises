@@ -981,15 +981,16 @@ Now we want to export this behaviour outside of the file. ES2015 has a solution,
 
 
 - CommonJS: in another file, you can import this code:
+	  
 	  module.exports = {
 		foo: ‘bar’;
 	  }
 
 - AMD:
-	define(’TaskCollection’, [‘_’], function () { 
-	// here you create the module
-	});
 	
+		define(’TaskCollection’, [‘_’], function () { 
+		// here you create the module
+		});
 
 This is just an illustration, you don’t need to worry about that stuff anymore with ES6.
 
@@ -1005,11 +1006,11 @@ import { TaskCollection, foo } from ‘./TaskCollection;
 
 // newing up class in main.js
 
-new TaskCollection([
-	‘Learn Vue’, 
-	‘Understand JS first’,
-	‘Study Laravel too’
-]).dump();
+	new TaskCollection([
+		‘Learn Vue’, 
+		‘Understand JS first’,
+		‘Study Laravel too’
+	]).dump();
 
 - **export default** in TC.js => import TaskCollection from ‘./TaskCollection; (without {})
 - **exporting a variable** => import TaskCollection, { foo } from ‘./TaskCollection;
