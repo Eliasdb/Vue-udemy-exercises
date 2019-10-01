@@ -1085,3 +1085,79 @@ All you really need to know to start is when you’re reading an API or a librar
 
 	timer(4000).then(() => alert(‘All done!’));
 
+**Useful string additions**
+
+- string.includes();
+
+*Old way:*
+
+	let title = ‘Red Rising’;
+
+	if (title.indexOf(‘R’) == 0 {
+		console.log(‘R is the first character’);
+	}
+
+	let title = ‘Red Rising’;
+
+	if (title.indexOf(‘Blue’) == -1 {
+		console.log(‘This book does not begin with Blue’);
+	}
+
+This is the old, weirder way of checking a string on its contents.
+
+*New ES6 way:*
+
+	let title = ‘Red Rising’;
+
+	if (title.includes(‘Red’) {
+		console.log(‘This book includes Red’);
+	}
+
+
+This would be true even if Red wasn’t at the beginning. It just checks if it’s included in the string. This is the addition we could use to check what it starts/ends with:
+
+- string.startsWith
+- string.endsWith
+
+
+*New ES6 way:*
+
+	let title = ‘Red Rising’;
+
+	if (title.startsWith/endsWith(‘Red’/‘ing’)) {
+		console.log(‘R is the first character’/‘It does end with ‘ing’’);
+	}
+
+*Another new ES6 way - startsWith:*
+
+	let title = ‘Red Rising’;
+
+	if (title.startsWith(‘i’, 5)) {
+		console.log(‘R is the first character’);
+	}
+
+This checks the fifth index and if it includes an i. Endswith uses this differently and calculates the number of characters - 5 and checks if there’s an i there.
+
+
+- string.repeat()
+
+	let str = ‘lol’;
+	console.log(str.repeat(100));
+
+
+	let str = ‘tro’;
+	console.log(
+		str + lol’.repeat(100)
+	);
+
+	let heading = ‘The heading is here’;
+
+	console.log(
+		‘>=‘.repeat(5) + ‘’ + heading + ‘’ + ‘=<‘.repeat(5)
+	)
+
+These three examples are easy, it simply takes the string and repeats it n amount of times.
+
+
+Array#find and array#includes
+
