@@ -1162,5 +1162,74 @@ OR
 These three examples are easy, it simply takes the string and repeats it n amount of times.
 
 
-Array#find and array#includes
+**Array#find and array#includes**
+
+*Intro*
+
+	console.log(
+		[2, 4, 6, 8, 10].indexOf(8) > -1 // outputs true because its index is higher than -1
+		[2, 4, 6, 8, 10].includes(8)  // outputs true (ES7? but browser supported)
+	);
+
+
+**Array#find**
+
+Find me the first item in the array that meets the condition you set:
+
+	console.log(
+		[2, 4, 6, 8, 10, 11].find(function(item) {
+			return item === 8; // 8
+			return item > 5; // 6
+			return item % 2 > 0 // first odd number 11
+		})
+	);
+
+
+This is great and all, but can use the arrow syntax now and refactor our code:
+ 
+	console.log(
+		[2, 4, 6, 8, 10, 11].find(item => item % 2) // 11
+		[2, 4, 6, 8, 10, 11].find(item  > item > 8) // 10
+		[2, 4, 6, 8, 10, 11].findIndex(item => item > 8) // 4, the index number of 10
+
+	);
+
+Take a look at this more practical example:
+
+	class User {
+		constructor(name, isAdmin) {
+			this.name = name;
+			this.isAdmin = isAdmin
+		}
+	}
+
+	let users = [
+		new User(‘Olli’, false),
+		new User(‘Simon’, true),
+		new User(’Fred’, false)
+	];’’
+
+	console.log(
+		users.find(user => user.isAdmin).name // find the name of the first one where the user is an admin
+	);
+
+*Side note:*
+
+- [].fill()
+- [].keys()
+- [].values()
+- [].entries()(!)
+
+These also exist, but look them up when you need it. It basically gives you sometimes valuable information about arrays.
+
+
+
+
+
+
+
+
+
+
+
 
