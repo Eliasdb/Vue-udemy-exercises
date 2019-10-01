@@ -1144,11 +1144,14 @@ This checks the fifth index and if it includes an i. Endswith uses this differen
 		let str = ‘lol’;
 		console.log(str.repeat(100));
 
+/////////////////////////////////////////////////
 
 		let str = ‘tro’;
 		console.log(
 		str + lol’.repeat(100)
 		);
+
+/////////////////////////////////////////////////
 
 
 		let heading = ‘The heading is here’;
