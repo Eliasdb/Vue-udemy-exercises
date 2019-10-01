@@ -1145,6 +1145,7 @@ This checks the fifth index and if it includes an i. Endswith uses this differen
 		console.log(str.repeat(100));
 
 OR
+
 		let str = ‘tro’;
 		console.log(
 		str + lol’.repeat(100)
