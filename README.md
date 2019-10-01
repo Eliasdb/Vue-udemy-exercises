@@ -1164,7 +1164,7 @@ These three examples are easy, it simply takes the string and repeats it n amoun
 
 **Array#find and array#includes**
 
-*Intro*
+**Array#includes**
 
 	console.log(
 		[2, 4, 6, 8, 10].indexOf(8) > -1 // outputs true because its index is higher than -1
