@@ -1141,20 +1141,20 @@ This checks the fifth index and if it includes an i. Endswith uses this differen
 
 - string.repeat()
 
-	let str = ‘lol’;
-	console.log(str.repeat(100));
+		let str = ‘lol’;
+		console.log(str.repeat(100));
 
 
-	let str = ‘tro’;
-	console.log(
+		let str = ‘tro’;
+		console.log(
 		str + lol’.repeat(100)
-	);
+		);
 
-	let heading = ‘The heading is here’;
 
-	console.log(
-		‘>=‘.repeat(5) + ‘’ + heading + ‘’ + ‘=<‘.repeat(5)
-	)
+		let heading = ‘The heading is here’;
+		console.log(
+			‘>=‘.repeat(5) + ‘’ + heading + ‘’ + ‘=<‘.repeat(5)
+		)
 
 These three examples are easy, it simply takes the string and repeats it n amount of times.
 
