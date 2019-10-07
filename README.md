@@ -1084,6 +1084,34 @@ All you really need to know to start is when you’re reading an API or a librar
 	};
 
 	timer(4000).then(() => alert(‘All done!’));
+	
+	
+**Promises again:**
+
+    methods: {
+            fetchData() {
+                this.spinner = true;
+		
+                 axios
+                    .get('https://datatank.stad.gent/4/mobiliteit/bezettingparkingsrealtime.json')
+                       .then(response => {
+                        this.parking = response.data;
+                    })
+                    .finally(() => {
+                        setTimeout(this.fetchData, this.refreshRate);
+                        this.spinner = false;
+                    });    
+            },
+        },
+	
+
+Axios.get() : This is a promise, a placeholder, something which you can operate upon **once it's done**.
+So once the *.get()* is done, *.then()* I want to do the following code or *.catch()* anything that might went wrong and handle that in some way.
+
+A placeholder for an action that has not yet been completed or started just yet. But once it has completed, .then(), proceed and do the following action. Any code after it will execute first, until the promise has been executed. .then and .finally will wait for it.
+
+*Side note*: forsureapromise.then -> if you see anything like this, you know whatever precedes then, is a promise.
+
 
 **Useful string additions**
 
@@ -1221,9 +1249,6 @@ Take a look at this more practical example:
 - [].entries()(!)
 
 These also exist, but look them up when you need it. It basically gives you sometimes valuable information about arrays.
-
-
-
 
 
 
