@@ -1113,6 +1113,86 @@ A placeholder for an action that has not yet been completed or started just yet.
 *Side note*: forsureapromise.then -> if you see anything like this, you know whatever precedes then, is a promise.
 
 
+**Async and await**
+
+Example: reporting spam to adamin when clicking button
+
+		methods: {
+	    		notifyAdministrator() {
+				swal({
+		    			title: 'Spam?',
+		    			text: this.message,
+		    			icon: 'warning',
+		    			buttons: ['Cancel', 'Yes']
+				}).then(confirmed => {
+		    			if (!confirmed) return;
+
+		   	 		axios.post(this.url).then(() => {
+						flash('Okay, thanks for the help!');
+		    			});
+				});
+	    		}
+		}
+	};
+	
+The sweet alert function returns a promise. When the promise resolves, we will submit an axios request and once we're done, flash a message. You end up with nested code, which isn't that much of an issue, but we can simplify this with async and await.
+
+
+		methods: {
+			ASYNC notifyAdministrator() {
+				 LET CONFIRMED = AWAIT swal({
+					title: 'Spam?',
+					text: this.message,
+					icon: 'warning',
+					buttons: ['Cancel', 'Yes']
+				});
+					if (!confirmed) return;
+
+					axios.post(this.url).then(() => {
+						flash('Okay, thanks for the help!');
+					});
+				RETURN 'foobar';
+			}
+		}
+	};
+
+ *Async:*
+ 
+When you add async in front of a method, it becomes an asynchronous method and it should return a promise. It doesn't return 'foobar' when you add async. It returns a promise now, so you have to use .then() in order for it to execute, because it waits on the promise.
+
+*Await:*
+
+When you add await at the swal, it's basically saying wait for this swal promise to be resolved. Think of it as our way of saying pause the execution until this asynchronous operation has completed.
+
+So that way we could make it into a variable and get rid of the .then() call and have more of a traditional way which makes the code easier to write and to consume.
+
+We still have another promise:
+
+		methods: {
+			ASYNC notifyAdministrator() {
+				 LET CONFIRMED = AWAIT swal({
+					title: 'Spam?',
+					text: this.message,
+					icon: 'warning',
+					buttons: ['Cancel', 'Yes']
+				});
+					if (!confirmed) return;
+
+					AWAIT axios.post(this.url)
+					
+					flash('Okay, thanks for the help!');
+			}
+		}
+	};
+
+Axios.post returns a promise, so we could say await axios post. When that has officially been resolved, flash the message.
+
+*Conclusion:*
+
+Notice we got rid of the indentation entirely and from a simple pragmatic point of view, that's an immediate win. The less indentation, the cleaner it's going to be. If you get rid of async, the whole thing is going to crash, because await is a reserved word. You can't use it without being in an async function, at the top level.
+
+Don't forget: Whenever you prefix a method with the keyword await, whatever you return ('foobar' for example), you're not going to get that return value, but a promise that then resolves with that value.
+ 
 **Useful string additions**
 
 - string.includes();
